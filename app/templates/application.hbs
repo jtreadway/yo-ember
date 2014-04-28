@@ -1,0 +1,26 @@
+<div>
+		<h1>{{title}}</h1>
+		<p>{{intro}}</p>
+
+		{{#each dates}}
+			<h2>{{date}}</h2>
+			{{#each venues}}
+				<h3>
+					<a href="{{url}}" target="_blank">{{name}}</a> - {{phone}}
+				</h3>
+				{{#each events}}
+					{{#each attractions}}{{#if _view.contentIndex }},{{/if}}
+						{{name}}{{/each}}
+					({{ages}}, {{cost}})
+					({{notes}})
+					{{#each times}}{{#if _view.contentIndex }},{{/if}}
+						{{this}}{{/each}}
+					{{#if soldout }}
+						[SOLD OUT]
+					{{/if}}							
+					<br>
+				{{/each}}
+			{{/each}}
+		{{/each}}
+
+</div>
